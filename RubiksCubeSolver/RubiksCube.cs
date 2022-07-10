@@ -94,15 +94,6 @@ namespace RubiksCubeSolver
             mReverseRowRotationFaceOrder = Enumerable.Reverse(mRowRotationFaceOrder).ToArray();
             mReverseLeftRightFaceOrder = Enumerable.Reverse(mLeftRightFaceOrder).ToArray();
             mReverseFrontBackFaceOrder = Enumerable.Reverse(mFrontBackFaceOrder).ToArray();
-
-            Scramble(10000);
-
-            while(mScamble.Count > 0)
-            {
-                PopMove(mScamble);
-            }
-
-            PrintCube();
         }
 
         public void Reset()
