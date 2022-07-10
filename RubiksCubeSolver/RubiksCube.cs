@@ -7,29 +7,29 @@ using System.Threading.Tasks;
 namespace RubiksCubeSolver
 {
     /// <summary>
+    /// All possible moves you can do on a cube.
+    /// There are more moves here than will be allowed for
+    /// a standard most efficient solve.
+    /// </summary>
+    public enum eMoves
+    {
+        U, D, R, L, F, B,
+        UP, DP, RP, LP, FP, BP,
+        U2, D2, R2, L2, F2, B2,
+        Uw, Dw, Rw, Lw, Fw, Bw,
+        UwP, DwP, RwP, LwP, FwP, BwP,
+        Uw2, Dw2, Rw2, Lw2, Fw2, Bw2,
+        M, E, S,
+        MP, EP, SP,
+        M2, E2, S2,
+        NO_MOVE
+    }
+
+    /// <summary>
     /// Holds the data 
     /// </summary>
     public class RubiksCube
     {
-        /// <summary>
-        /// All possible moves you can do on a cube.
-        /// There are more moves here than will be allowed for
-        /// a standard most efficient solve.
-        /// </summary>
-        private enum eMoves
-        {
-            U, D, R, L, F, B,
-            UP, DP, RP, LP, FP, BP,
-            U2, D2, R2, L2, F2, B2,
-            Uw, Dw, Rw, Lw, Fw, Bw,
-            UwP, DwP, RwP, LwP, FwP, BwP,
-            Uw2, Dw2, Rw2, Lw2, Fw2, Bw2,
-            M, E, S,
-            MP, EP, SP,
-            M2, E2, S2,
-            NO_MOVE
-        }
-
         const int TOP_FACE = 0;
         const int BOTTOM_FACE = 1;
         const int FRONT_FACE = 2;
@@ -105,7 +105,6 @@ namespace RubiksCubeSolver
             }
 
             mScamble.Clear();
-            mSolve.Clear();
         }
 
         /// <summary>
@@ -143,10 +142,32 @@ namespace RubiksCubeSolver
 
             for(int i = 0; i < numMoves; i++)
             {
-                int randomIndex = random.Next(mStandardMoveset.Count());
-                eMoves randomMove = mStandardMoveset[randomIndex];
-                PushMove(randomMove, mScamble);
+                RandomMove(random);
             }
+        }
+
+        private void RandomMove(Random random)
+        {
+            int randomIndex = random.Next(mStandardMoveset.Count());
+            eMoves randomMove = mStandardMoveset[randomIndex];
+            PushMove(randomMove, mScamble);
+        }
+
+        /// <summary>
+        /// Public interface to make a move with the objective of solving the cube.
+        /// </summary>
+        /// <param name="move"></param>
+        public void PushMove(eMoves move)
+        {
+            PushMove(move, mSolve);
+        }
+
+        /// <summary>
+        /// Public method to reverse the previous move.
+        /// </summary>
+        public void PopMove()
+        {
+            PopMove(mSolve);
         }
 
         /// <summary>
@@ -171,24 +192,6 @@ namespace RubiksCubeSolver
                 eMoves inverseMove = mReverseMoves[(int)moveStack.Pop()];
                 HandleMove(inverseMove);
             }
-        }
-
-        /// <summary>
-        /// Solves the rubiks cube the intuitive way.
-        /// </summary>
-        public void SolveAlgorithmicly()
-        {
-
-        }
-
-        /// <summary>
-        /// Solves the cube in the fewest moves.
-        /// Done by performing each possible move recursively until
-        /// it finds the first move that solves the cube.
-        /// </summary>
-        public void MostEfficientSolve()
-        {
-
         }
 
         // TOP-BOTTOM-FRONT-BACK-LEFT-RIGHT.
