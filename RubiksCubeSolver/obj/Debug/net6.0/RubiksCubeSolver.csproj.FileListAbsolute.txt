@@ -1,0 +1,15 @@
+C:\Users\Bryce\source\repos\RubiksCubeSolver\RubiksCubeSolver\bin\Debug\net6.0\RubiksCubeSolver.exe
+C:\Users\Bryce\source\repos\RubiksCubeSolver\RubiksCubeSolver\bin\Debug\net6.0\RubiksCubeSolver.deps.json
+C:\Users\Bryce\source\repos\RubiksCubeSolver\RubiksCubeSolver\bin\Debug\net6.0\RubiksCubeSolver.runtimeconfig.json
+C:\Users\Bryce\source\repos\RubiksCubeSolver\RubiksCubeSolver\bin\Debug\net6.0\RubiksCubeSolver.dll
+C:\Users\Bryce\source\repos\RubiksCubeSolver\RubiksCubeSolver\bin\Debug\net6.0\RubiksCubeSolver.pdb
+C:\Users\Bryce\source\repos\RubiksCubeSolver\RubiksCubeSolver\obj\Debug\net6.0\RubiksCubeSolver.csproj.AssemblyReference.cache
+C:\Users\Bryce\source\repos\RubiksCubeSolver\RubiksCubeSolver\obj\Debug\net6.0\RubiksCubeSolver.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Bryce\source\repos\RubiksCubeSolver\RubiksCubeSolver\obj\Debug\net6.0\RubiksCubeSolver.AssemblyInfoInputs.cache
+C:\Users\Bryce\source\repos\RubiksCubeSolver\RubiksCubeSolver\obj\Debug\net6.0\RubiksCubeSolver.AssemblyInfo.cs
+C:\Users\Bryce\source\repos\RubiksCubeSolver\RubiksCubeSolver\obj\Debug\net6.0\RubiksCubeSolver.csproj.CoreCompileInputs.cache
+C:\Users\Bryce\source\repos\RubiksCubeSolver\RubiksCubeSolver\obj\Debug\net6.0\RubiksCubeSolver.dll
+C:\Users\Bryce\source\repos\RubiksCubeSolver\RubiksCubeSolver\obj\Debug\net6.0\refint\RubiksCubeSolver.dll
+C:\Users\Bryce\source\repos\RubiksCubeSolver\RubiksCubeSolver\obj\Debug\net6.0\RubiksCubeSolver.pdb
+C:\Users\Bryce\source\repos\RubiksCubeSolver\RubiksCubeSolver\obj\Debug\net6.0\RubiksCubeSolver.genruntimeconfig.cache
+C:\Users\Bryce\source\repos\RubiksCubeSolver\RubiksCubeSolver\obj\Debug\net6.0\ref\RubiksCubeSolver.dll
