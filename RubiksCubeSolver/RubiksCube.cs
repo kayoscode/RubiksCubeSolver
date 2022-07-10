@@ -58,12 +58,6 @@ namespace RubiksCubeSolver
             eMoves.M, eMoves.E, eMoves.S,
             eMoves.MP, eMoves.EP, eMoves.SP,
             eMoves.M2, eMoves.E2, eMoves.S2,
-
-            // To be removed.
-            eMoves.Rw, eMoves.Rw2, eMoves.RwP,
-            eMoves.Lw, eMoves.Lw2, eMoves.RwP,
-            eMoves.Fw, eMoves.Fw2, eMoves.FwP,
-            eMoves.Bw, eMoves.Bw2, eMoves.BwP,
         };
 
         /// <summary>
@@ -112,6 +106,30 @@ namespace RubiksCubeSolver
 
             mScamble.Clear();
             mSolve.Clear();
+        }
+
+        /// <summary>
+        /// Tests to see if the cube is in a solved state after resetting and scrambling many times.
+        /// </summary>
+        public void ScrambleTest()
+        {
+            Reset();
+            Scramble(500000);
+
+            while(mScamble.Count > 0)
+            {
+                PopMove(mScamble);
+            }
+
+            if (CheckSolvedStatus())
+            {
+                Console.WriteLine("Passed");
+            }
+            else
+            {
+                Console.WriteLine("Failed");
+                PrintCube();
+            }
         }
 
         /// <summary>
@@ -768,9 +786,37 @@ namespace RubiksCubeSolver
         /// Checks if the cube is in a solved position or not.
         /// </summary>
         /// <returns></returns>
-        private bool CheckForSolve()
+        private bool CheckSolvedStatus()
         {
-            return false;
+            // Every face has to have the same color only, and there must be 9 of each color on the cube.
+            char[] colorCounts = new char[256];
+
+            // Iterate through each face.
+            for (int i = 0; i < 6; i++)
+            {
+                char targetColor = mState[i, 0];
+
+                for (int j = 0; j < 9; j++)
+                {
+                    char currentColor = mState[i, j];
+
+                    if (currentColor != targetColor)
+                    {
+                        return false;
+                    }
+
+                    colorCounts[mState[i, j]]++;
+                }
+            }
+
+            if (colorCounts['y'] != 9 || colorCounts['w'] != 9 ||
+                colorCounts['b'] != 9 || colorCounts['g'] != 9 ||
+                    colorCounts['o'] != 9 || colorCounts['r'] != 9)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         /// <summary>
